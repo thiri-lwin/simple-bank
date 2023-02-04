@@ -76,6 +76,13 @@ func TestTransferTx(t *testing.T) {
 		require.Equal(t, account2.ID, toAcc.ID)
 		require.Equal(t, account2.Owner, toAcc.Owner)
 		//require.Equal(t, account2.Balance+amount, toAcc.Balance)
+
+		// check balances
+		diff1 := account1.Balance - fromAcc.Balance
+		diff2 := toAcc.Balance - account2.Balance
+		require.Equal(t, diff1, diff2)
+		require.True(t, diff1 > 0)
+		require.True(t, diff1%amount == 0)
 	}
 
 	updatedAcc, err := testQueries.GetAccount(context.Background(), account1.ID)
