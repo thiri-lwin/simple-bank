@@ -84,7 +84,7 @@ func (q *Queries) GetTransactionByReceiverAcc(ctx context.Context, arg GetTransa
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Transaction
+	items := []Transaction{}
 	for rows.Next() {
 		var i Transaction
 		if err := rows.Scan(
@@ -126,7 +126,7 @@ func (q *Queries) GetTransactionBySenderAcc(ctx context.Context, arg GetTransact
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Transaction
+	items := []Transaction{}
 	for rows.Next() {
 		var i Transaction
 		if err := rows.Scan(
@@ -174,7 +174,7 @@ func (q *Queries) GetTransactionBySenderAndReceiver(ctx context.Context, arg Get
 		return nil, err
 	}
 	defer rows.Close()
-	var items []Transaction
+	items := []Transaction{}
 	for rows.Next() {
 		var i Transaction
 		if err := rows.Scan(

@@ -32,8 +32,8 @@ CREATE INDEX ON "transaction" ("to_account_id");
 
 CREATE INDEX ON "transaction" ("from_account_id", "to_account_id");
 
-ALTER TABLE "entries" ADD FOREIGN KEY ("account_id") REFERENCES "account" ("id");
+ALTER TABLE "entries" ADD FOREIGN KEY ("account_id") REFERENCES "account" ("id") ON DELETE CASCADE ;
 
-ALTER TABLE "transaction" ADD FOREIGN KEY ("from_account_id") REFERENCES "account" ("id");
+ALTER TABLE "transaction" ADD FOREIGN KEY ("from_account_id") REFERENCES "account" ("id") ON DELETE CASCADE;
 
-ALTER TABLE "transaction" ADD FOREIGN KEY ("to_account_id") REFERENCES "account" ("id");
+ALTER TABLE "transaction" ADD FOREIGN KEY ("to_account_id") REFERENCES "account" ("id") ON DELETE CASCADE;
