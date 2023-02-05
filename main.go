@@ -20,6 +20,9 @@ func main() {
 		log.Fatal(err)
 	}
 	store := db.NewStore(conn)
-	server := api.NewServer(store)
-	server.Start("0.0.0.0:8080")
+	//server := api.NewServer(store)
+	//server.Start("0.0.0.0:8080")
+
+	server := api.NewMuxServer(store)
+	server.StartMuxServer("0.0.0.0:8080")
 }
