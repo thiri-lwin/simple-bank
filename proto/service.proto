@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb;
+
+import "rpc_create_account.proto";
+import "google/api/annotations.proto";
+
+option go_package = "github.com/thiri-lwin/thiri-bank/pb";
+
+service ThiriBank {
+    rpc CreateAccount (CreateAccountRequest) returns (CreateAccountResponse) {
+        option (google.api.http) = {
+                post: "/v1/accounts"
+                body: "*"
+        };
+    }
+}

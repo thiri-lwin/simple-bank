@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package pb;
+
+import "account.proto";
+
+option go_package = "github.com/thiri-lwin/thiri-bank/pb";
+
+message CreateAccountRequest {
+    string Owner = 1;
+    string Currency = 2;
+}
+
+message CreateAccountResponse {
+    Account account = 1;
+}
+ 
